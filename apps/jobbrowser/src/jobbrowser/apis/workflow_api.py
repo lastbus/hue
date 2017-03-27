@@ -52,6 +52,9 @@ class WorkflowApi(Api):
     if ENABLE_OOZIE_BACKEND_FILTERING.get() and text_filters.get('text'):
       kwargs['filters'].extend([('text', text_filters.get('text'))])
 
+#     if request.GET.get('offset'):
+#       kwargs['offset'] = request.GET.get('offset')
+
     if filters.get('states'):
       states_filters = {'running': ['RUNNING', 'PREP', 'SUSPENDED'], 'completed': ['SUCCEEDED'], 'failed': ['FAILED', 'KILLED'],}
       for _state in filters.get('states'):
