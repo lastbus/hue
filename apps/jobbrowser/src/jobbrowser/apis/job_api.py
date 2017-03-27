@@ -289,7 +289,8 @@ class YarnMapReduceTaskAttemptApi(Api):
         "type" : task.type + '_ATTEMPT',
         "startTime" : task.startTime,
         "id" : task.id,
-        "finishTime" : task.finishTime
+        "finishTime" : task.finishTime,
+        "task_id": self.task_id
     }
 
 

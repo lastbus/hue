@@ -613,7 +613,7 @@ ${ commonheader("Job Browser", "jobbrowser", user, request) | n,unicode }
         </div>
 
         <div class="tab-pane" id="job-mapreduce-task-attempt-page-logs-container">
-          % for name in ['container-stdout', 'container-stderr', 'container-syslog']:
+          % for name in ['stdout', 'stderr', 'syslog']:
             <a href="javascript:void(0)" data-bind="click: function() { fetchLogs('${ name }'); }, text: '${ name }'"></a>
           % endfor
           <br>
@@ -1061,7 +1061,9 @@ ${ commonheader("Job Browser", "jobbrowser", user, request) | n,unicode }
         }
 
         var interface = vm.interface();
-        if (/oozie-oozi-W/.test(self.id())) { interface = 'workflows'; };
+        if (/oozie-oozi-W/.test(self.id())) {
+          interface = 'workflows';
+        };
 
         $.post("/jobbrowser/api/job", {
           app_id: ko.mapping.toJSON(self.id),
@@ -1325,6 +1327,13 @@ ${ commonheader("Job Browser", "jobbrowser", user, request) | n,unicode }
         if (h.indexOf('#!') === 0) {
           h = h.substr(2);
         }
+                                  
+                                  
+               //                               if (/$attempt_/.test(vm.job().id())) {
+               //vm.breadcrumbs.push({'id': vm.job().properties['task_id'], 'name': vm.job().name(), 'type': 'task'});
+            //}
+// reload http://127.0.0.1:8000/jobbrowser/apps#!attempt_1490453321679_0001_m_000000_0
+                                  
         switch (h) {
           case '':
            break;
@@ -1340,6 +1349,7 @@ ${ commonheader("Job Browser", "jobbrowser", user, request) | n,unicode }
             else if (/oozie-oozi-C/.test(h)) { viewModel.interface('schedules'); }
             else if (/oozie-oozi-B/.test(h)) { viewModel.interface('bundles'); }
             else { isJob = false; }
+
             if (isJob) {
               new Job(viewModel, {id: h}).fetchJob();
             }
