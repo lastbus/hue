@@ -319,12 +319,12 @@ ${ commonheader("Job Browser", "jobbrowser", user, request) | n,unicode }
       ${ _('of') }
       <span data-bind="text: paginationResultCounts"></span>
       .
-  
+
       ##${ _('Show')}
       ##<span data-bind="text: paginationResultPage"></span>
       ##${ _('results by page.') }
     </div>
-  
+
     <ul class="inline">
       <li class="previous-page">
         <a href="javascript:void(0);" data-bind="click: previousPage" title="${_('Previous page')}"><i class="fa fa-backward"></i></a>
@@ -1273,10 +1273,10 @@ ${ commonheader("Job Browser", "jobbrowser", user, request) | n,unicode }
         self.resetBreadcrumbs();
         self.job(null);
       };
-                                                                           
+
       self.jobs = new Jobs(self, options);
       self.job = ko.observable();
-                                                                           
+
       self.breadcrumbs = ko.observableArray([]);
       self.resetBreadcrumbs = function() {
         self.breadcrumbs([{'id': '', 'name': self.interface(), 'type': self.interface()}]);
