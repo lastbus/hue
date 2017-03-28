@@ -678,7 +678,9 @@ from notebook.conf import get_ordered_interpreters
         <!-- ko if: sourceType === 'hive' || sourceType === 'impala' -->
         <!-- ko if: typeof databaseName !== 'undefined' -->
           <!-- ko if: IS_HUE_4 -->
-            <a class="inactive-action" href="javascript:void(0)" data-bind="click: function () { huePubSub.publish('open.link', '${ url('indexer:importer_prefill', source_type='all', target_type='table') }' + databaseName ); }" title="${_('Create table')}" href="javascript:void(0)"><i class="pointer fa fa-plus" title="${_('Create table')}"></i></a>
+            <a class="inactive-action" href="javascript:void(0)" data-bind="click: function () { huePubSub.publish('open.link', '${ url('indexer:importer_prefill', source_type='all', target_type='table') }' + databaseName ); }" title="${_('Create table')}" href="javascript:void(0)">
+              <i class="pointer fa fa-plus" title="${_('Create table')}"></i>
+            </a>
           <!-- /ko -->
           <!-- ko if: ! IS_HUE_4 -->
             <a class="inactive-action" href="javascript:void(0)" data-bind="attr: { 'href': '${ url('indexer:importer_prefill', source_type='all', target_type='table') }' + databaseName }"><i class="pointer fa fa-plus" title="${_('Create table')}"></i></a>
@@ -1662,7 +1664,11 @@ from notebook.conf import get_ordered_interpreters
     <br/>
     <ul data-bind="foreach: activeTables">
       <li>
-        <span data-bind="text: name"></span> <i class="fa fa-info"></i> <i class="fa fa-fw fa-clock-o muted" title="02/01/2017 10:15 PM"></i>
+        <span data-bind="text: name"></span>
+        <a href="javascript:void(0)">
+          <i class="fa fa-info"></i>
+        </a>
+        <i class="fa fa-fw fa-clock-o muted" title="02/01/2017 10:15 PM"></i>
       </li>
     </ul>
 
