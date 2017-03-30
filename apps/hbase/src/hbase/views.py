@@ -53,6 +53,7 @@ def api_router(request, url): # On split, deserialize anything
 
   def safe_json_load(raw):
     try:
+      LOG.debug("raw: %s", raw)
       return json.loads(re.sub(r'(?:\")([0-9]+)(?:\")', r'\1', str(raw)))
     except:
       LOG.exception('failed to parse input as json')
