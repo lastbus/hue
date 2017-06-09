@@ -735,7 +735,7 @@ TIME_ZONE = Config(
   key="time_zone",
   help=_("Time zone name."),
   type=str,
-  default=os.environ.get("TZ", "America/Los_Angeles")
+  default=os.environ.get("TZ", "Asia/Shanghai")
 )
 
 DEFAULT_SITE_ENCODING = Config(
